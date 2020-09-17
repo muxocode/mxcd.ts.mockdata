@@ -1,0 +1,48 @@
+{
+  "name": "mxcd.randomdata",
+  "version": "1.0.1",
+  "private": false,
+  "main": "index.js",
+  "keywords": [
+    "my",
+    "lib"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "npm test -- --coverage",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
+    "delete": "node scripts/delete.js",
+    "build": "npm run delete && npm run tojs && npm run copy",
+    "copy": "node scripts/copy.js",
+    "tojs": "tsc --sourceMap --esModuleInterop --declaration --outDir dist src/index.ts",
+    "publish:dist": "npm publish ./dist",
+    "bundle": "npm run build && node scripts/bundle.js & browserify ./dist/bundle.index.js > ./bundle/index.js -t [ babelify --presets [es2015]]"
+  },
+  "jest": {
+    "testResultsProcessor": "./node_modules/jest-junit-reporter",
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "coverageReporters": [
+      "cobertura",
+      "html"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@types/jest": "^26.0.13",
+    "@types/js-cookie": "^2.2.4",
+    "@types/node": "13.7.4",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0",
+    "copy-dir": "^1.2.0",
+    "jest": "^26.4.2",
+    "jest-junit-reporter": "^1.1.0",
+    "ts-jest": "^26.3.0",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "uid": "^1.0.0"
+  }
+}
