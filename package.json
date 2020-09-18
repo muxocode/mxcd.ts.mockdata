@@ -1,11 +1,13 @@
 {
   "name": "mxcd.randomdata",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "main": "index.js",
+  "repository": "https://github.com/muxocode/mxcd.ts.mockdata",
   "keywords": [
-    "my",
-    "lib"
+    "random",
+    "data",
+    "mock"
   ],
   "scripts": {
     "test": "jest",
